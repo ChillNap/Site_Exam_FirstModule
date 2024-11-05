@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <!-- include the head -->
+    <link rel="stylesheet" href="/section2.css">
+    <%- include('partials/head') %>
+    <title>Картинки</title>
+
+</head>
+
+
+<body>
+
+    <header>
+        <!-- Include the header -->
+        <%- include('partials/header') %>
+
+    </header>
+
+    <div class="container">
+        <h2>Картинки</h2>
+
+        <h3>Картинка с описанием</h3>
+        <div class="image-container">
+            <img src="/images/mordred_01.png" alt="Object 1" style="width:200px;">
+            <p>Описание к картинке 1</p>
+        </div>
+
+
+        <h3>Картинка с всплывающим описанием</h3>
+        <div class="image-container">
+            <img src="/images/mordred_02.jpg" alt="Object 2" class="hover-image" style="width:200px;">
+            <p>Описание к картинке с всплывающим описанием</p>
+            <div class="description-hover">всплывающее описание картинки со всплывающим описанием</div>
+        </div>
+
+        <h3>Большая картинка с превью</h3>
+        <div class="image-container">
+            <a href="/images/mordred_03.jpg" target="_blank">
+                <img src="/images/mordred_03.jpg" alt="Large Image Thumbnail" style="width:100px;">
+            </a>
+            <p>Нажмите на картинку чтобы открыть в новой вкладке</p>
+        </div>
+    </div>
+    <footer>
+        <!-- Include the footer -->
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

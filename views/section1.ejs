@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <!-- include the head -->
+    <link rel="stylesheet" href="/section1.css">
+    <%- include('partials/head') %>
+    <title>Списки/таблицы</title>
+
+</head>
+
+
+<body>
+    <header>
+        <!-- Include the header -->
+        <%- include('partials/header') %>
+
+    </header>
+        <h2 style="text-align: center">Списки</h2>
+        <h3>нумерованый лист(список покупок)</h3>
+    <ol>
+        <li>картошка</li>
+        <li>салатик</li>
+        <li>хлеб</li>
+    </ol>
+
+    <h3>ненумерованый список</h3>
+    <ul class="body-list">
+        <li>что то первое</li>
+        <li>что то второе</li>
+        <li>что то третье</li>
+    </ul>
+
+    <h3>вложенные списки(расписание дня)</h3>
+    <ul class="body-list">
+        <li>утро
+            <ul class="body-list">
+                <li>проснуться</li>
+                <li>собраться</li>
+                <li>сходить в вуз</li>
+            </ul>
+        </li>
+        <li>обед
+            <ul class="body-list">
+                <li>покушать</li>
+                <li>поспать</li>
+            </ul>
+        </li>
+    </ul>
+
+        <h2 style="text-align: center">Табличка</h2>
+
+    <table style="width:90%; background-image: url('/images/background_06.jpg'); background-size: cover; background-position: center;  background-repeat: no-repeat; background-origin: padding-box">
+        <thead>
+            <tr>
+                <th>Столбец 1</th>
+                <th>Столбец 2</th>
+                <th>Столбец 3</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><img src="/images/mordred_01.png" alt="Small Image 1" style="width:100px;"></td>
+                <td><span class="highlight"><a href="https://steamcommunity.com/id/ImportantLink/" target="_blank">ВНЕШНЯЯ ССЫЛКА</a></span></td>
+                <td><span class="highlight">ТЕКСТ</span></td>
+            </tr>
+            <tr>
+                <td><span class="highlight">ТОЖЕ ТЕКСТ</span></td>
+                <td><img src="/images/mordred_02.jpg" alt="Small Image 2" style="width:100px;"></td>
+                <td><span class="highlight"><a href="/">ВНУТРЕННЯЯ ССЫЛКА</a></span></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <footer>
+        <!-- Include the footer -->
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

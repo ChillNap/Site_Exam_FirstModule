@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <!-- include the head -->
+    <link rel="stylesheet" href="/BlockedSites.css">
+    <%- include('partials/head') %>
+    <title>Главная Страница</title>
+
+</head>
+
+
+<body>
+
+    <header>
+        <!-- Include the header -->
+        <%- include('partials/header') %>
+
+    </header>
+
+    <div class="text"><h1>Добро пожаловать на страницу блокировок</h1></div>
+    <div class="text"><h2>Здесь вы можете узнать был ли заблокирован тот или иной сайт в РФ</h2></div>
+    <div class="text">
+        <p>Сноска: Роскомнадзор и прочие организации никогда не продоставляли открытых баз данных с заблокированными сайтами.</p>
+        <p>Также на оффициальном сайте роскомнадзора более нельзя получить информацию о заблокированных сервисах.</p>
+        <p>Для того чтобы получить информацию был ли заблокирован сайт нужно написать его домен, например: "youtube.com",
+            если вы не получили результата, попробуйте добавить "www." в начале к домену сайта,
+            если и при этом вы не получили результата, значит либо сайт не заблокирован, либо он ещё не находится в базе данных.</p>
+    </div>
+
+
+
+    <div class="answer-form">
+        <form id="checkForm">
+            <input type="text" id="site" placeholder="ex: www.youtube.com">
+            <button type="submit">Проверить сайт</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+
+    <script>
+        document.getElementById('checkForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const site = document.getElementById('site').value;
+
+            try {
+                const response = await fetch('/BlockedSites', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ site })
+                });
+
+                const data = await response.json();
+                document.getElementById('result').textContent = data.message;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').textContent = 'An error occurred while checking the site.';
+            }
+        });
+    </script>
+
+    <footer>
+    <!-- Include the footer -->
+    <%- include('partials/footer') %>
+
+        <p><a href="https://reestr.rublacklist.net/en/article/api/" target="_blank" class="link">Roskomsvoboda API</a></p>
+    </footer>
+
+</body>
+</html>

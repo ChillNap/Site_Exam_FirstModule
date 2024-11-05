@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <!-- include the head -->
+    <%- include('partials/head') %>
+    <title>Алгоритмическая задача</title>
+
+</head>
+
+
+<body>
+
+    <header>
+        <!-- Include the header -->
+        <%- include('partials/header') %>
+
+    </header>
+
+
+        <h2>Задача Вычислить Z:</h2>
+        <h3>условие</h3>
+        <p>1013. Даны вещественные числа X и Y . Вычислить Z. Z = XY при X > Y ,Z = ln(X + Y ) в противном случае.</p>
+        <div>
+
+        </div>
+
+        <div>
+            <form id="calcForm">
+                <input type="number" id="X" placeholder="Введите X" step="0.01" required>
+                <input type="number" id="Y" placeholder="Введите Y" step="0.01" required>
+                <input type="number" id="Z" placeholder="Введите Z(ответ)" step="0.01" required>
+                <button type="submit">Calculate</button>
+            </form>
+        </div>
+
+        <div id="result"></div>
+        <div id="calculatedZ"></div>
+        <div id="result" class="result"></div>
+
+
+      <script>
+
+       document.getElementById('calcForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Get X and Y values from input fields
+            const X = parseFloat(document.getElementById('X').value);
+            const Y = parseFloat(document.getElementById('Y').value);
+            const Z = parseFloat(document.getElementById('Z').value);
+
+            try {
+                // Send X, Y, and Z to the server and fetch the result
+                const response = await fetch(`/section4`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ X, Y, Z })
+                });
+
+                const data = await response.json();
+
+                // Display the result in the page based on server response
+                if (response.ok) {
+                    document.getElementById('result').textContent = data.message;
+                    document.getElementById('calculatedZ').textContent = `Ответ Z: ${data.Z}`;
+                } else {
+                    document.getElementById('result').textContent = data.error || 'An error occurred.';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').textContent = 'An error occurred while calculating.';
+            }
+        });
+      </script>
+
+
+
+
+     <footer>
+        <!-- Include the footer -->
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

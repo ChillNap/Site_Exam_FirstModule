@@ -1,0 +1,164 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    padding: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline-flex;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: all 0.2s ease-in;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+    transform: translateY(-5px);
+}
+
+section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+footer {
+    color: white;
+    background-color: #333;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Lists styling */
+ol, ul {
+    margin: 20px auto;
+    padding-left: 40px;
+}
+/*
+ul li {
+    list-style: square inside;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+    color: #007BFF;
+}
+*/
+
+/* Image styling */
+img {
+    display: block;
+    margin: 10px auto;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Thumbnail image styling */
+a img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+thead th {
+    border-bottom: 2px solid #333; /* Separator for the header row */
+    padding: 10px;
+    background-color: #d3d3d3; /* Header background color */
+    text-align: center;
+}
+
+tbody td {
+    border: 3px solid #333333; /* Borders for rows and columns */
+    padding: 10px;
+    text-align: center;
+}
+
+
+table tr td {
+    transition: transform 0.2s ease;
+
+}
+table tr td:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.25);
+}
+
+
+span.highlight {
+    background-color: #e2e2e2;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+/*custom */
+#rainbow-btn {
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    animation: rainbow 5s ease infinite;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 12px 24px;
+    transition: transform 0.3s ease;
+}
+
+#rainbow-btn:hover {
+    transform: scale(1.25);
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
